@@ -1,5 +1,7 @@
-# Микросервисы для игры Крестики-Нолики  на Go 🎮
-[Anton Evgenev](https://t.me/tdutanton) 
+# Микросервис для игры Крестики-Нолики  на Go 🎮  
+
+[Anton Evgenev](https://t.me/tdutanton)  
+
 Микросервис для игры в крестики-нолики с AI-соперником, реализованный по принципам чистой архитектуры.
 
 ## ✨ Особенности
@@ -88,10 +90,26 @@ Content-Type: application/json
 - Выбирает оптимальную стратегию
 
 🧩 Граф зависимостей
-```graph TD
+```mermaid
+graph TD
     A[Web Handler] --> B[Game Service]
-    B --> C[Game Repository]
+    B --> C[Game Repository] 
     C --> D[Game Store]
+    
+    style A fill:#f9f,stroke:#333
+    style B fill:#bbf,stroke:#333
+    style C fill:#f96,stroke:#333
+    style D fill:#6f9,stroke:#333
+    
+    classDef handler fill:#f9f,stroke:#333;
+    classDef service fill:#bbf,stroke:#333;
+    classDef repo fill:#f96,stroke:#333;
+    classDef store fill:#6f9,stroke:#333;
+    
+    class A handler
+    class B service
+    class C repo
+    class D store
 ```
 
 ## 🛠 Технологии
