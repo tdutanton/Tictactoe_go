@@ -1,0 +1,33 @@
+# https://taskfile.dev
+
+version: '3'
+
+executor:
+  shell: bash
+
+tasks:
+  default:
+    cmds:
+      - go run cmd/main.go
+
+  linters:
+    cmds:
+      - echo "Checking code with some linters"
+      - go fmt ./... || true
+      - golint ./... || true
+      - go vet ./... || true
+      - echo "Checking code done"
+    silent: true
+
+  extra_linters:
+    cmds:
+      - echo "Checking code with some extra linters"
+      - gofumpt -l -w . || true
+      - echo "Checking code done"
+    deps:
+      - linters
+    silent: true
+
+  testapp:
+    cmds:
+      - go run test/main.go
